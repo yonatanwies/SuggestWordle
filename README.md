@@ -10,7 +10,7 @@ A simple program to help you solve your daily Wordle.
    Enter your new letter, followed by it's location (start counting from 0-4).
   * notinposition_update:
     Update letters that are in the word, but not in the correct location (yellow letters).
-   *. unusable_update:
+  * unusable_update:
     Updates unusable letters (grey letters).
   3. Check Existance:
    Run this method on your word, to check if it exists in English.
