@@ -1,7 +1,7 @@
 from english_words import english_words_lower_alpha_set
 
 
-class Wordle:
+class SuggestWordle:
 
     word_list = [word for word in english_words_lower_alpha_set if len(word) == 5]
 
