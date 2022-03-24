@@ -12,7 +12,7 @@ A simple program to help you solve your daily Wordle.
     Update letters that are in the word, but not in the correct location (yellow letters).
   * unusable_update:
     Updates unusable letters (grey letters).
-  3. Check Existance: \n
+  3. Check Existance: 
    Run this method on your word, to check if it exists in English.
     
 ## Made by yonatanwies.
