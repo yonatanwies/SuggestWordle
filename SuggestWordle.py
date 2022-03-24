@@ -7,7 +7,8 @@ class Wordle:
 
     def __init__(self):
         self.word = input("Your word is: ").lower()
-        self.notinword = [char for char in set(input("Enter unusable letters: ")) if char.isalpha()]
+        self.notinword = [char.lower() for char in set(input("Enter unusable letters: ")) if char.isalpha()]
+        self.notinposition = [char.lower() for char in set(input("Enter letters not in position: ")) if char.isalpha()]
 
     def __str__(self):
         return f"Your word is {self.word}"
@@ -17,15 +18,19 @@ class Wordle:
             return 'Word exists'
         return 'Word does not exist'
 
-        def word_update(self, letter, location):
+    def word_update(self, letter, location):
         temp = [char for char in self.word]
         temp[location] = letter
         self.word = "".join(temp)
 
-    def unusable_update(self,letters_lst):
-        for letter in letters_lst:
+    def unusable_update(self,letters):
+        for letter in letters:
             self.notinword.append(letter)
-            
+
+    def notinposition_update(self, letters):
+        for letter in letters:
+            self.notinposition.append(letter)
+
     def suggestion(self):
         suggestions = []
         counter = 0
@@ -37,7 +42,10 @@ class Wordle:
                 temp_count = 0
                 for letter in word:
                     if letter in self.notinword:
-                        temp_count += 1
+                        if len(self.notinposition) > 0 and letter in self.notinposition:
+                            temp_count += 1
+                        else:
+                            temp_count += 1
                 if temp_count == 0:
                     suggestions.append(word)
             counter = 0
