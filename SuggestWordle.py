@@ -17,11 +17,15 @@ class Wordle:
             return 'Word exists'
         return 'Word does not exist'
 
-    def update(self, letter, location):
+        def word_update(self, letter, location):
         temp = [char for char in self.word]
         temp[location] = letter
         self.word = "".join(temp)
 
+    def unusable_update(self,letters_lst):
+        for letter in letters_lst:
+            self.notinword.append(letter)
+            
     def suggestion(self):
         suggestions = []
         counter = 0
